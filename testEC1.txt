@@ -1,0 +1,4 @@
+Strike:1
+Genetic Algorithm:1
+Fake Super Card:2
+Crush:3
