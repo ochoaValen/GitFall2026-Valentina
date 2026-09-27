@@ -1,0 +1,84 @@
+a. How many commits have been done to the repository?
+
+There have been 16 commits made to the repository.
+
+Command:
+git rev-list --count HEAD
+
+b. When was the .gitignore file modified last?
+
+The .gitignore file was last modified on September 26, 2026 at 7:37:19 PM (-0500).
+
+Command:
+git log -1 --format="%ad" -- .gitignore
+
+
+c. What command(s) could you use to obtain the list of files that were in a repository on a specific date, for example 06/01/2020?
+
+Commands:
+git rev-list -1 --before="2020-06-01 23:59" HEAD
+git ls-tree -r --name-only <commit-hash>
+
+The first command finds the most recent commit that existed on or before the specified date. The second command lists all files that existed in the repository at that commit.
+
+d. How many times was each of the files inside the src folder modified?
+
+src/file.java was modified 1 time.
+
+Command:
+git log --name-only --pretty=format: -- src | sort | uniq -c
+
+e. How many addition operations were involved in the creation of the file Remove.txt?
+
+There was 1 addition operation involved in the creation of Remove.txt.
+
+Command:
+git log --follow --numstat -- Remove.txt
+
+f. What is the difference between git log and git status?
+
+git log displays the commit history of the repository, including information such as commit hashes, authors, dates, and commit messages.
+
+git status displays the current state of the working directory and staging area. It shows modified files, staged files, untracked files, and the branch currently being used.
+
+g. What does the command shortlog do?
+
+git shortlog summarizes the commit history by author. It groups commits by contributor and displays each author's commits in a summarized format.
+
+Command:
+git shortlog
+
+h. What command would you use to list the commits in which the file Main.java was part of the committed files?
+
+Command:
+git log -- Main.java
+
+This command displays the commits in which Main.java was modified.
+
+i. What command would you use to list the commits in which the file Main.java was part of the committed files, including renames and the diffs of each commit?
+
+Command:
+git log --follow -p -- Main.java
+
+The --follow option tracks the file through renames, while -p displays the differences introduced in each commit.
+
+j. What command would you use to list the commits whose commit message contains the word "account"?
+
+Command:
+git log --grep="account"
+
+This command searches the commit messages for the word "account".
+
+k. What command would you use to see the commits made by a specific person?
+
+Command:
+git log --author="Person Name"
+
+The --author option filters the commit history so that only commits made by the specified author are displayed.
+
+l. What command would you use to see the commits made by Lauren between 01/05/2014 and 01/14/2024?
+
+Command:
+git log --author="Lauren" --since="2014-01-05" --until="2024-01-14"
+
+This command displays commits made by Lauren between January 5, 2014 and January 14, 2024.
